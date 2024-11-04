@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #1e1e2f; /* Tmavé pozadí */
+    color: #ffffff; /* Světlé písmo */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #2a2a3b; /* Tmavší pozadí pro kontejner */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2, h3 {
+    color: #61dafb; /* Světle modrá barva pro nadpisy */
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+pre {
+    background-color: #3a3a4d; /* Tmavě šedé pozadí pro bloky kódu */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+code {
+    display: inline-block; /* Umožní centrování */
+    font-size: 1.2em; /* Zvětšení písma */
+    background-color: #333; /* Pozadí pro kód */
+    color: #fff; /* Barva textu */
+    padding: 10px; /* Vnitřní okraje */
+    border-radius: 5px; /* Zaoblení rohů */
+    text-align: center; /* Vycentrování textu */
+    margin: 10px 0; /* Vnější okraje */
+}
+
+.script-section {
+    margin-bottom: 30px;
+}
+
+.script-block {
+    background-color: #2a2a3b; /* Tmavší pozadí pro blok skriptu */
+    border: 1px solid #444; /* Tmavý okraj */
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.nadpis {
+    text-align: center; /* Centrovat text */
+}
+
+.nadpis h1 {
+    margin: 0; /* Odstranění výchozího okraje */
+}
+
+.nadpis hr {
+    width: 50%; /* Šířka čáry */
+    border: 1px solid #61dafb; /* Barva a tloušťka čáry */
+    margin: 10px auto; /* Centrovat čáru */
+}
