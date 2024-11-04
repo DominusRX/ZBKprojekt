@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<div class="container">
+    		<title>Advanced Google Hacking</title>
+    		<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nadpis">
+	<h1>Advanced Google Hacking</h1>
+    </div>
+    <div class="container">
+        <h2>Úvod</h2>
+        <p>
+            Představuje schopnost využívání vyhledávání google k nalezení citlivých informací. Schopnosti google se myslí specifické fráze „Operátory“ které dovolují vyhledat určitá data. Pomocí google hackingu (též nazívaném google dorcing) se můžeme dostat k stránkám dokumentům nebo i záznamům z kamer.
+        </p>
+        <p>
+            V minulosti je třeba známý případ heckera Weev kterému se v roce 2010 povedlo vyhledat citlivé informace zákazníků společnosti AT&T. Hecker byl nakonec obviněn z porušení zákona CFAA (Computer Fraud and Abuse Act), i když pouze využil volně dostupné informace.
+        </p>
+        <p>
+            Důvod, proč můžeme najít některé data pomocí google hackingu je ten, že některé stránky sice nejsou přístupné pomocí vyhledávače, ale po zadání přímo adresy k ní můžeme přistoupit. Jedná se o skryté (někdy se uvádí i jako „neadresované“ „noindex“) stránky.
+        </p>
+
+        <h2>Současný stav techniky</h2>
+        <p>
+            Krom využívání v dnešní době i skripty. Známy je skript GoogD0rker (Python), tento skript v Pythonu umožňuje automatizaci vyhledávacích dotazů (dorků) na Google, shromažďování výsledků a jejich analýzu. Je určen pro penetrační testery a výzkumníky, kteří chtějí rychle najít citlivé informace na internetu.
+        </p>
+        <p>
+            Dále se začalo velice využívat stránek s formuláři se zapomenutým heslem, které mohou obsahovat zranitelnosti, jako je Cross-Site Scripting (XSS) nebo SQL Injection. Mohou zneužít tyto zranitelnosti k získání přístupů do účtů uživatelů.
+        </p>
+
+        <h2>Výpis možných operátorů</h2>
+        <ul>
+            <li><strong>site:</strong> – Omezí výsledky vyhledávání na konkrétní doménu nebo web.
+                <br><em>Příklad:</em> <code>site:example.com</code>
+            </li>
+            <li><strong>filetype:</strong> – Hledá soubory určitého typu.
+                <br><em>Příklad:</em> <code>filetype:pdf</code>
+            </li>
+            <li><strong>intitle:</strong> – Hledá stránky, které mají určitý text v titulku.
+                <br><em>Příklad:</em> <code>intitle:"index of"</code>
+            </li>
+            <li><strong>inurl:</strong> – Omezí výsledky na stránky, které mají určitý text v URL.
+                <br><em>Příklad:</em> <code>inurl:admin</code>
+            </li>
+            <li><strong>intext:</strong> – Hledá text v obsahu stránky.
+                <br><em>Příklad:</em> <code>intext:"confidential"</code>
+            </li>
+            <li><strong>cache:</strong> – Zobrazí uloženou verzi stránky.
+                <br><em>Příklad:</em> <code>cache:example.com</code>
+            </li>
+            <li><strong>related:</strong> – Hledá webové stránky související s danou stránkou.
+                <br><em>Příklad:</em> <code>related:example.com</code>
+            </li>
+        </ul>
+	<h2>Příklady skriptů</h2>
+
+        <div class="script-section">
+            <h3>1. GoogD0rker</h3>
+            <div class="script-block">
+                <p>GoogD0rker je Python skript určený k automatizaci vyhledávání pomocí Google Dorků. Umožňuje uživatelům snadno generovat dotazy a analyzovat výsledky, což je užitečné pro penetrační testování.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>python3 googD0rker.py -d "intitle:index.of admin"</code></pre>
+                <p>V tomto příkladu skript vyhledává stránky s titulkem „index of“ a slovem „admin“.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>2. GoogleScraper</h3>
+            <div class="script-block">
+                <p>GoogleScraper je pokročilý nástroj napsaný v Pythonu, který umožňuje scrapování výsledků vyhledávání a jejich analýzu. Podporuje paralelní scrapování a možnost použití proxy serverů.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>python3 GoogleScraper.py --dork "filetype:xls site:.gov"</code></pre>
+                <p>Tento příkaz vyhledává vládní stránky (site:.gov) s excelovými soubory (filetype).</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>3. GHDB Scraper</h3>
+            <div class="script-block">
+                <p>GHDB Scraper automatizuje vyhledávání pomocí dorků z Google Hacking Database (GHDB). Umožňuje uživatelům procházet tisíce dorků a shromažďovat výsledky.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>python3 ghdb_scraper.py --category "sensitive directories"</code></pre>
+                <p>V tomto případě skript hledá citlivé adresáře podle definovaných kategorií v GHDB.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>4. GooFuzz</h3>
+            <div class="script-block">
+                <p>GooFuzz je nástroj pro vyhledávání citlivých dat pomocí Google Dorků, který generuje dotazy a scrapuje výsledky. Je užitečný pro identifikaci potenciálních hrozeb.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>goofuzz -d "site:example.com filetype:log"</code></pre>
+                <p>Tento příkaz vyhledává logové soubory na webu example.com.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>5. Google Dorks Tool (Bash)</h3>
+            <div class="script-block">
+                <p>Tento jednoduchý Bash skript umožňuje rychlé a snadné vyhledávání pomocí Google Dorků přímo z příkazové řádky.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>./googledorks.sh "intitle:index.of" "site:example.com"</code></pre>
+                <p>Příkaz vyhledává stránky s titulkem „index of“ na webu example.com.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>6. TheHarvester</h3>
+            <div class="script-block">
+                <p>TheHarvester je nástroj pro shromažďování informací pomocí veřejných zdrojů, včetně Google. Pomocí dorků může extrahovat e-mailové adresy, subdomény a další data.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>theharvester -d example.com -l 500 -b google</code></pre>
+                <p>Tento příkaz shromažďuje informace o doméně example.com až do 500 výsledků z Google.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>7. SQLi Dork Scanner</h3>
+            <div class="script-block">
+                <p>Tento nástroj je zaměřen na vyhledávání zranitelných webových stránek náchylných k SQL Injection útokům pomocí Google Dorků.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>python3 sqli_dork_scanner.py -d "inurl:index.php?id="</code></pre>
+                <p>Příkaz hledá zranitelné stránky s parametrem id v URL.</p>
+            </div>
+        </div>
+
+        <div class="script-section">
+            <h3>8. GitDorker</h3>
+            <div class="script-block">
+                <p>GitDorker je nástroj pro vyhledávání citlivých informací na GitHubu, který využívá dorky k nalezení API klíčů, tokenů a dalších citlivých dat.</p>
+                <p><strong>Ukázka použití:</strong></p>
+                <pre><code>python3 GitDorker.py -tf tokens.txt -q "API_KEY"</code></pre>
+                <p>Tento příkaz prohledává GitHub a hledá citlivé tokeny podle dorku definovaného v souboru tokens.txt.</p>	
+    </div>
+</body>
+</html>
